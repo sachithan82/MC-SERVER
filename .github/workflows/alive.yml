@@ -1,0 +1,20 @@
+name: Keep Codespace Alive
+
+on:
+  schedule:
+    - cron: "*/5 * * * *" # Every 5 minutes
+  workflow_dispatch:
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Ping to Codespace
+        run: |
+          curl -s --possible-seeking.gl.joinmc.link | head -n 1
+
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
